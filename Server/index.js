@@ -111,8 +111,8 @@ app.get("/posts/:id", async(request,response) => {
 
 // Creating a new blog
 app.post("/posts/", async (request, response) => {
-  const { author, blog } = request.body;
-    const postQuery = `INSERT INTO posts(author,blog) VALUES ('${author}',${blog}');`;
+    const { author, blog } = request.body;
+    const postQuery = `INSERT INTO posts(author,blog) VALUES ('${author}','${blog}');`;
     const addPost = await db.run(postQuery);
     response.send("Created a Blog");
 });

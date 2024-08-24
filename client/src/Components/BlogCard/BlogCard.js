@@ -2,10 +2,13 @@ import React from 'react'
 import './BlogCard.css'
 
 const BlogCard = (props) => {
-    const {blogdata,deleteBlogPost} = props
+    const {blogdata,deleteBlogPost,editBlogPost} = props
     const {author,blog,id} = blogdata
     const deleteBlog = () =>{
       deleteBlogPost(id);
+    }
+    const editBlog = () => {
+      editBlogPost(id)
     }
   return (
     <div className='blogcard-container'>
@@ -14,7 +17,10 @@ const BlogCard = (props) => {
         <p className='blogcard-blog'>{blog}</p>
         <p className='blogcard-author'>{author}</p>
         </div>
+        <div className='buttons'>
         <button className='delete-button' onClick={deleteBlog}>Delete</button>
+        <button className='edit-button' onClick={editBlog}>Edit</button>
+        </div>
     </div>
   )
 }
