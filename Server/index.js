@@ -4,10 +4,13 @@ const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+var cors = require("cors");
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const dbPath = path.join(__dirname, "database.db");
 
@@ -20,8 +23,8 @@ const dbRunner = async () => {
         driver: sqlite3.Database,
       });
   
-      app.listen(6000, () => {
-        console.log("Database has been connected and running at 6000");
+      app.listen(3000, () => {
+        console.log("Database has been connected and running at 3000");
       });
     } catch (error) {
       console.log(error);
@@ -108,7 +111,6 @@ app.get("/posts/:id", async(request,response) => {
 
 // Creating a new blog
 app.post("/posts/", async (request, response) => {
-  //   const { username } = request.headers;
   const { author, blog } = request.body;
     const postQuery = `INSERT INTO posts(author,blog) VALUES ('${author}',${blog}');`;
     const addPost = await db.run(postQuery);

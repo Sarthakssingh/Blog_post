@@ -1,0 +1,36 @@
+.blogcard-container{
+    width: 40vw;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+    font-family: Roboto;
+    display: flex;
+    justify-content: space-between;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+}
+.blogcard-id{
+    font-size: 15px;
+    justify-content: start;
+}
+.blogcard-blog{
+    font-size: 20px; 
+    text-align: center;
+    align-self: center; 
+}
+.blogcard-author{
+    font-size: 18px;
+    text-align: right;
+    align-items: right;
+}
+.delete-button{
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(243, 104, 104);
+    color: #f0f8ff;
+}
