@@ -74,7 +74,7 @@ class Register extends Component {
           'Content-Type': 'application/json'
       }
     };
-    await Axios.post('http://localhost:3000/register/', userDetails, axiosConfig).then((response) => {console.log(response)
+    await Axios.post('https://render-blog-deployemnt.onrender.com/register/', userDetails, axiosConfig).then((response) => {console.log(response)
       const { navigate } = this.props;
     navigate("/login");
     }).catch((error) => {console.log(error)

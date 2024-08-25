@@ -17,7 +17,7 @@ class Body extends Component{
   }
 
   allBlogs = async (event)=>{
-    await Axios.get("http://localhost:3000/posts/").then(response => {console.log(response.data)
+    await Axios.get("https://render-blog-deployemnt.onrender.com/posts/").then(response => {console.log(response.data)
       this.setState({blogList:response.data})
     }).catch((error)=>console.log(error))
   }
@@ -46,7 +46,7 @@ class Body extends Component{
             'Content-Type': 'application/json'
         }
       };
-      await Axios.post('http://localhost:3000/posts/', postData, axiosConfig).then(response => {alert(response.data)
+      await Axios.post('https://render-blog-deployemnt.onrender.com/posts/', postData, axiosConfig).then(response => {alert(response.data)
         this.allBlogs()
       }).catch((error)=> console.log(error));
 
@@ -74,7 +74,7 @@ class Body extends Component{
   }
 
   deleteBlogPost = async (id) => {
-    await Axios.delete(`http://localhost:3000/posts/${id}`).then(response => {alert(response.data,"Please Referesh the page!")
+    await Axios.delete(`https://render-blog-deployemnt.onrender.com/posts/${id}`).then(response => {alert(response.data,"Please Referesh the page!")
       this.allBlogs()
     }).catch((error)=>console.log(error))
   }
@@ -92,7 +92,7 @@ class Body extends Component{
             'Content-Type': 'application/json'
         }
       };
-      await Axios.put(`http://localhost:3000/posts/${currentid}`, postData, axiosConfig).then(response => {alert(response.data)
+      await Axios.put(`https://render-blog-deployemnt.onrender.com/posts/${currentid}`, postData, axiosConfig).then(response => {alert(response.data)
         this.allBlogs()
       }).catch((error)=> console.log(error));
       this.setState({author:"",blog:""})
@@ -103,6 +103,7 @@ class Body extends Component{
     const newBlogList = blogList.filter((item) => {
       if (item.blog.toLowerCase()
           .includes(searchVal.toLowerCase())) { return item; }
+        // eslint-disable-next-line
   })
   this.setState({blogList:newBlogList})
   }
