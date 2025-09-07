@@ -1,12 +1,19 @@
-import React from 'react'
+import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
+import withRouter from './withRouter'
 import './Body.css'
+
+
+
 
 const Header = (props) => {
   const {SearchBlogPost} = props
+
   const searchBlog = (e) =>{
     SearchBlogPost(e.target.value)
   }
+
+
   return (
     <nav className='header-nav'>
       <div className='header-logo-container'>
@@ -25,11 +32,12 @@ const Header = (props) => {
                         <Link to="/">Home</Link>
                     </li>
                     <li className='header-li'>
-                        <Link to="/login">Logout</Link>
+                        <button  onClick={()=> {const { navigate } = props;Cookies.remove('jwt_token')
+    navigate("/login");}}>Logout</button>
                     </li>
                 </ul>
             </nav>
   )
 }
 
-export default Header
+export default withRouter(Header);

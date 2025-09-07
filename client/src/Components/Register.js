@@ -75,7 +75,7 @@ class Register extends Component {
       }
     };
     await Axios.post('https://render-blog-deployemnt.onrender.com/register/', userDetails, axiosConfig).then((response) => {console.log(response)
-      const { navigate } = this.props;
+    const { navigate } = this.props;
     navigate("/login");
     }).catch((error) => {console.log(error)
       this.setState({showSubmitError: true, errorMsg:error.message})

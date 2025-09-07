@@ -1,4 +1,4 @@
-import { useNavigate,} from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const withRouter = WrappedComponent => props => {
   const navigate = useNavigate();

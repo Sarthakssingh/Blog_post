@@ -1,15 +1,16 @@
-import { Route} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Cookie from 'js-cookie'
-// import withRouter from './withRouter'
+import withRouter from './withRouter'
+import Body from "./Body";
 
-const ProtectedRoute = children => {
+const ProtectedRoute = () => {
+  const navigate = useNavigate();
   const token = Cookie.get('jwt_token')
-  console.log(children)
   if (token === undefined) {
-    const { navigate } = this.props;
+    // const { navigate } = this.props;
     navigate("/login");
   }
-  return <Route {...children} />
+  return <Body />
 }
 
-export default (ProtectedRoute)
+export default withRouter (ProtectedRoute);

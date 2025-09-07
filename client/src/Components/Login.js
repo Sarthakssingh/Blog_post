@@ -86,7 +86,7 @@ class Login extends Component {
       path: '/',
     })
     const { navigate } = this.props;
-    navigate("/login");
+    navigate("/");
     }).catch((error) => {console.log(error)
       this.setState({showSubmitError: true, errorMsg:error.message})
     })
